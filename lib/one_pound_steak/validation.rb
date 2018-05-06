@@ -42,7 +42,7 @@
 #
 #       valid_password_pattern = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i
 #       if password !~ valid_password_pattern
-#         $flash[:alert_invalid_password] = "パスワードは英数字混合にしてください"
+#         $flash[:alert_invalid_password] = 'パスワードは英数字混合にしてください'
 #         return $flash[:alert_invalid_password]
 #       end
 #
@@ -52,7 +52,7 @@
 #       end
 #
 #       unless password == password_check
-#         $flash[:alert_match_password] = "パスワードとパスワード(確認)が一致しません"
+#         $flash[:alert_match_password] = 'パスワードとパスワード(確認)が一致しません'
 #       end
 #     end
 #   end
