@@ -1,4 +1,4 @@
-
+module OnePondoSteak
   class StringParam < Common
     # 入力文字数がオーバーしてないかチェック
     def size_over(param, max_size, name = 'size_over')
@@ -26,3 +26,4 @@
       Common.regex_check(name, param, Regex::VALID_MIXED_ALPHABETS)
     end
   end
+end

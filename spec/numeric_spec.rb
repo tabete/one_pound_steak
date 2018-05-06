@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe 'Validation' do
+RSpec.describe 'OnePondoSteak' do
   describe "#numeric" do
 
     before do
-      @validate = NumericParam.new
+      @validate = OnePondoSteak::NumericParam.new
     end
 
     context "integer type" do

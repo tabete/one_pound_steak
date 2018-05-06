@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe 'Validation' do
+RSpec.describe 'OnePondoSteak' do
   describe "#datetime" do
 
     before do
-      @validate = DatetimeParam.new
+      @validate = OnePondoSteak::DatetimeParam.new
     end
 
     context "datetime type" do

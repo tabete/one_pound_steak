@@ -1,57 +1,58 @@
+module OnePondoSteak
+  class Product < Common
+    def shop_id(param)
+      @validate = NumericParam.new
+      @validate.natural_number(param, 'shop_id')
+    end
 
-class Product < Common
-  def shop_id(param)
-    @validate = NumericParam.new
-    @validate.natural_number(param, 'shop_id')
-  end
+    def name(param)
 
-  def name(param)
+    end
 
-  end
+    def stock(param)
+      @validate = NumericParam.new
+      @validate.natural_number(param, 'stock')
+    end
 
-  def stock(param)
-    @validate = NumericParam.new
-    @validate.natural_number(param, 'stock')
-  end
+    def description(param)
 
-  def description(param)
+    end
 
-  end
+    def available_time_start(param)
 
-  def available_time_start(param)
+    end
 
-  end
+    def available_time_end(param)
 
-  def available_time_end(param)
+    end
 
-  end
+    def price(param)
+      @validate = NumericParam.new
+      @validate.natural_number(param, 'stock')
 
-  def price(param)
-    @validate = NumericParam.new
-    @validate.natural_number(param, 'stock')
+    end
 
-  end
+    def discount_price(param)
+      @validate = NumericParam.new
+      @validate.natural_number(param, 'stock')
 
-  def discount_price(param)
-    @validate = NumericParam.new
-    @validate.natural_number(param, 'stock')
+    end
 
-  end
+    def is_enabled(param)
 
-  def is_enabled(param)
+    end
 
-  end
+    def rescue_message(param)
 
-  def rescue_message(param)
+    end
 
-  end
+    def top_img_url(param)
 
-  def top_img_url(param)
+    end
 
-  end
-
-  def exhibit_count(param)
-    @validate = NumericParam.new
-    @validate.natural_number(param, 'stock')
+    def exhibit_count(param)
+      @validate = NumericParam.new
+      @validate.natural_number(param, 'stock')
+    end
   end
 end
