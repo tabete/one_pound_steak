@@ -5,7 +5,7 @@ require "one_pound_steak/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "one_pound_steak"
-  spec.version       = OnePondoSteak::VERSION
+  spec.version       = OnePoundSteak::VERSION
   spec.authors       = ["mizutamazukki"]
   spec.email         = ["mickydisney1212@gmail.com"]
 

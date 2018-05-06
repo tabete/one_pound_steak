@@ -1,4 +1,4 @@
-module OnePondoSteak
+module OnePoundSteak
   class NumericParam
     # 整数値チェック
     def integer(num, name = 'integer')

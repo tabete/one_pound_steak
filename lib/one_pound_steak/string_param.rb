@@ -1,4 +1,4 @@
-module OnePondoSteak
+module OnePoundSteak
   class StringParam < Common
     # 入力文字数がオーバーしてないかチェック
     def size_over(param, max_size, name = 'size_over')

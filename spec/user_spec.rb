@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe 'OnePondoSteak' do
+RSpec.describe 'OnePoundSteak' do
   describe "#numeric" do
 
     before do
-      @validate = OnePondoSteak::User.new
+      @validate = OnePoundSteak::User.new
     end
 
     context "email" do

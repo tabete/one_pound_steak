@@ -1,5 +1,5 @@
 require 'date'
-module OnePondoSteak
+module OnePoundSteak
   class DatetimeParam < Common
 
     # 日時チェック

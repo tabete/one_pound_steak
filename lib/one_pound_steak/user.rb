@@ -1,4 +1,4 @@
-module OnePondoSteak
+module OnePoundSteak
   class User < Common
 
     MAX_NAME_SIZE = 50

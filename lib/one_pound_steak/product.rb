@@ -1,4 +1,4 @@
-module OnePondoSteak
+module OnePoundSteak
   class Product < Common
     def shop_id(param)
       @validate = NumericParam.new

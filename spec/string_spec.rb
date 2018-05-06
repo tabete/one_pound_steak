@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe 'OnePondoSteak' do
+RSpec.describe 'OnePoundSteak' do
   describe "#string" do
 
     before do
-      @validate = OnePondoSteak::StringParam.new
+      @validate = OnePoundSteak::StringParam.new
     end
 
     context "文字数がmin以上max以下であるかチェック" do
