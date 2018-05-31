@@ -22,5 +22,5 @@ class Regex
   # 絵文字以外判定
   VALID_BYTE_OVER = /[^\p{In_Miscellaneous_Symbols_and_Pictographs}\p{In_Emoticons}]/
   # 英数混合のもので8文字以上
-  VALID_MIXED_ALPHABETS = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/
+  VALID_MIXED_ALPHABETS = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{8,100}+\z/
 end
