@@ -133,9 +133,9 @@ RSpec.describe 'OnePoundSteak' do
       end
 
       it "limitよりnumが小さく無い" do
-        valid, message = @validate.between_number(2, 1, 2)
+        valid, message = @validate.between_number(2, 0, 1)
         expect(valid).to eq(false)
-        expect(message).to eq('number_sizeは2以下の値を入力してください')
+        expect(message).to eq('number_sizeは1以下の値を入力してください')
       end
 
     end
