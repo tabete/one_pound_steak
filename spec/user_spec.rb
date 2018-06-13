@@ -128,17 +128,10 @@ RSpec.describe 'OnePoundSteak' do
       it "ok" do
         valid, message = @validate.gender(1)
         expect(valid).to eq(true)
-        p message
       end
       it "ok" do
-        valid, message = @validate.gender(2)
+        valid, message = @validate.gender(3)
         expect(valid).to eq(true)
-        p message
-      end
-      it "ok" do
-        valid, message = @validate.gender(0)
-        expect(valid).to eq(true)
-        p message
       end
       it "no nil" do
         valid, message = @validate.gender(nil)

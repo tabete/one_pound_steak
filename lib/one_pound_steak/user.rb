@@ -41,7 +41,7 @@ module OnePoundSteak
     end
 
     def gender(param)
-      NumericParam.new.between_number(param, 0, 2, 'gender')
+      NumericParam.new.between_number(param, 1, 3, 'gender')
     end
 
     def birth(param)
