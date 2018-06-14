@@ -129,6 +129,10 @@ RSpec.describe 'OnePoundSteak' do
         valid, message = @validate.gender(1)
         expect(valid).to eq(true)
       end
+      it "ok" do
+        valid, message = @validate.gender(3)
+        expect(valid).to eq(true)
+      end
       it "no nil" do
         valid, message = @validate.gender(nil)
         expect(valid).to eq(false)
@@ -137,6 +141,10 @@ RSpec.describe 'OnePoundSteak' do
     end
 
     context "birth" do
+      it "ok" do
+        valid, message = @validate.birth('2000-11-12')
+        expect(valid).to eq(true)
+      end
       it "ok" do
         valid, message = @validate.birth('2000-01-01')
         expect(valid).to eq(true)
