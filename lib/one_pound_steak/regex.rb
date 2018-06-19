@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'date'
 class Regex
   ## Datetime
@@ -18,7 +20,7 @@ class Regex
   # 電話番号
   VALID_PHONENUMBER = /\A(((0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1}|[5789]0[-(]?\d{4})[-)]?)|\d{1,4}\-?)\d{4}|0120[-(]?\d{3}[-)]?\d{3})\z/
   # 住所
-  VALID_ZIPCODE = /^\d{3}[-]\d{4}$/
+  VALID_ZIPCODE = /\A^\d{4}[-]\d{4}$/
   # 絵文字以外判定
   VALID_BYTE_OVER = /[^\p{In_Miscellaneous_Symbols_and_Pictographs}\p{In_Emoticons}]/
   # 英数混合のもので8文字以上
