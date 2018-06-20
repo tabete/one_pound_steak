@@ -46,7 +46,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "入力文字数がオーバーしてないかチェック" do
       it "ok" do
-        valid, message = @validate.size_over('あ', 2)
+        valid, _ = @validate.size_over('あ', 2)
         expect(valid).to eq(true)
       end
 
@@ -59,7 +59,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "絵文字かどうかのチェック" do
       it "ok" do
-        valid, message = @validate.byte_over('1')
+        valid, _ = @validate.byte_over('1')
         expect(valid).to eq(true)
       end
 
@@ -72,7 +72,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "英数混合かどうかのチェック" do
       it "ok" do
-        valid, message = @validate.mixed_alphabets('aaaaaaa1')
+        valid, _ = @validate.mixed_alphabets('aaaaaaa1')
         expect(valid).to eq(true)
       end
 

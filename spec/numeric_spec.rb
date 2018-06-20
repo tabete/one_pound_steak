@@ -9,7 +9,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "integer type" do
       it "ok" do
-        valid, message = @validate.integer(1)
+        valid, _ = @validate.integer(1)
         expect(valid).to eq(true)
       end
 
@@ -40,7 +40,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "nutural number type" do
       it "ok" do
-        valid, message = @validate.natural_number(1)
+      valid, _ = @validate.natural_number(1)
         expect(valid).to eq(true)
       end
 
@@ -72,7 +72,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "nutural number type" do
       it "ok" do
-        valid, message = @validate.natural_number(1)
+        valid, _ = @validate.natural_number(1)
         expect(valid).to eq(true)
       end
 
@@ -104,7 +104,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "size" do
       it "ok" do
-        valid, message = @validate.between_number(1, 0, 2)
+        valid, _ = @validate.between_number(1, 0, 2)
         expect(valid).to eq(true)
       end
 
