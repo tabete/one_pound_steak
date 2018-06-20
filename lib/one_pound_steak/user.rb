@@ -26,10 +26,12 @@ module OnePoundSteak
 
     def first_ruby(param)
       StringParam.new.size_over(param, MAX_NAME_SIZE, 'first_ruby')
+      StringParam.new.katakana_alphabets(param, 'first_ruby')
     end
 
     def last_ruby(param)
       StringParam.new.size_over(param, MAX_NAME_SIZE, 'last_ruby')
+      StringParam.new.katakana_alphabets(param, 'last_ruby')
     end
 
     def station1(param)

@@ -25,5 +25,10 @@ module OnePoundSteak
     def mixed_alphabets(param, name = 'mixed_alphabets')
       Common.regex_check(name, param, Regex::VALID_MIXED_ALPHABETS)
     end
+
+    # 片仮名の文字列かどうかのチェック
+    def katakana_alphabets(param, name = 'mixed_alphabets')
+      Common.regex_check(name, param, Regex::VALID_PHONETIC)
+    end
   end
 end

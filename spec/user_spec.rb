@@ -74,8 +74,14 @@ RSpec.describe 'OnePoundSteak' do
 
     context "first_ruby" do
       it "ok" do
-        valid, message = @validate.first_ruby('かぷちーの')
+        valid, message = @validate.first_ruby('カプチーノ')
         expect(valid).to eq(true)
+      end
+
+      it "not katakana" do
+        valid, message = @validate.first_ruby('かぷちーの')
+        expect(valid).to eq(false)
+        expect(message).to eq('first_rubyの形式が不正です')
       end
 
       it "no nil" do
@@ -86,8 +92,14 @@ RSpec.describe 'OnePoundSteak' do
     end
 
     context "last_ruby" do
+      it "not katakana" do
+        valid, message = @validate.last_ruby('かぷちーの')
+        expect(valid).to eq(false)
+        expect(message).to eq('last_rubyの形式が不正です')
+      end
+
       it "ok" do
-        valid, message = @validate.last_ruby('コークッキング')
+        valid, message = @validate.last_ruby('カプチーノ')
         expect(valid).to eq(true)
       end
 
