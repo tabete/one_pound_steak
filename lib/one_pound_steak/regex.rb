@@ -23,4 +23,6 @@ class Regex
   VALID_BYTE_OVER = /[^\p{In_Miscellaneous_Symbols_and_Pictographs}\p{In_Emoticons}]/
   # 英数混合のもので8文字以上
   VALID_MIXED_ALPHABETS = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{8,100}+\z/
+
+  VALID_PHONETIC = /\A[ァ-ヴ][ァ-ヴー・]*\z/
 end

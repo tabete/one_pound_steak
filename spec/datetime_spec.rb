@@ -9,7 +9,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "datetime type" do
       it "ok" do
-        valid, message = @validate.datetime('2000-01-01 00:00:00')
+        valid, _ = @validate.datetime('2000-01-01 00:00:00')
         expect(valid).to eq(true)
       end
 
@@ -58,7 +58,7 @@ RSpec.describe 'OnePoundSteak' do
       end
 
       it "ok date type" do
-        valid, message = @validate.date('1999-01-01')
+        valid, _ = @validate.date('1999-01-01')
         expect(valid).to eq(true)
       end
 
@@ -94,14 +94,14 @@ RSpec.describe 'OnePoundSteak' do
       end
 
       it "ok time type" do
-        valid, message = @validate.time('11:11:11')
+        valid, _ = @validate.time('11:11:11')
         expect(valid).to eq(true)
       end
     end
 
     context "relation_datetime type" do
       it "ok datetime type" do
-        valid, message = @validate.relation_datetime('2000-01-01 00:00:00', '2000-01-01 06:00:00')
+        valid, _ = @validate.relation_datetime('2000-01-01 00:00:00', '2000-01-01 06:00:00')
         expect(valid).to eq(true)
       end
 
@@ -162,7 +162,7 @@ RSpec.describe 'OnePoundSteak' do
       end
 
       it "no date" do
-        valid, message = @validate.relation_date('1999-01-01', '1999-01-01')
+        valid, _ = @validate.relation_date('1999-01-01', '1999-01-01')
         expect(valid).to eq(true)
       end
 
@@ -204,8 +204,8 @@ RSpec.describe 'OnePoundSteak' do
         expect(message).to eq('start_timeの形式が不正ですend_timeの形式が不正です')
       end
 
-      it "no time type" do
-        valid, message = @validate.relation_time('11:11:11', '11:11:12')
+      it "ok time type" do
+        valid, _ = @validate.relation_time('11:11:11', '11:11:12')
         expect(valid).to eq(true)
       end
     end

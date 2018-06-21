@@ -25,11 +25,19 @@ module OnePoundSteak
     end
 
     def first_ruby(param)
-      StringParam.new.size_over(param, MAX_NAME_SIZE, 'first_ruby')
+      is_valid, message = StringParam.new.katakana_alphabets(param, 'first_ruby')
+      return [is_valid, message] unless is_valid
+      is_valid, message = StringParam.new.size_over(param, MAX_NAME_SIZE, 'first_ruby')
+      return [is_valid, message] unless is_valid
+      [is_valid, message]
     end
 
     def last_ruby(param)
-      StringParam.new.size_over(param, MAX_NAME_SIZE, 'last_ruby')
+      is_valid, message = StringParam.new.katakana_alphabets(param, 'last_ruby')
+      return [is_valid, message] unless is_valid
+      is_valid, message = StringParam.new.size_over(param, MAX_NAME_SIZE, 'last_ruby')
+      return [is_valid, message] unless is_valid
+      [is_valid, message]
     end
 
     def station1(param)

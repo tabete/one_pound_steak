@@ -24,7 +24,7 @@ class Common
     state(true,  'ok '+name)
   end
 
-  def self.state(result, message)
-    [result, message]
+  def self.state(is_valid, message)
+    [is_valid, message]
   end
 end
