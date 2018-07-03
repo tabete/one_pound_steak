@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # module Validation
 #   module User
 #     def self.valid_phone_number?(phone_number)

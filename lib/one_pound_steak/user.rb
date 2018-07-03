@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module OnePoundSteak
   class User < Common
-
     MAX_NAME_SIZE = 50
     OS_PATTERN = %(android ios web)
 
