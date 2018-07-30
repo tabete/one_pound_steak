@@ -22,5 +22,18 @@ module OnePoundSteak
     def total_price(param)
       Common.regex_check('total_price', param, Regex::VALID_NUTURAL_NUMBER)
     end
+
+    def stripe_varsion(param)
+      Common.regex_check('stripe_varsion', param, Regex::VALID_DATE)
+    end
+
+    def cash_id(param)
+      Common.regex_check('cash_id', param, Regex::VALID_NUTURAL_NUMBER)
+    end
+
+    def page(param)
+      Common.regex_check('page', param, Regex::VALID_NUTURAL_NUMBER)
+    end
+
   end
 end

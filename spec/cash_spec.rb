@@ -64,5 +64,61 @@ RSpec.describe 'OnePoundSteak' do
         expect(message).to eq('total_priceが取得できませんでした')
       end
     end
+
+    context "stripe_varsion" do
+      it "ok" do
+        valid, _ = @validate.stripe_varsion('1999-01-01')
+        expect(valid).to eq(true)
+      end
+
+      it "no nil" do
+        valid, message = @validate.stripe_varsion(nil)
+        expect(valid).to eq(false)
+        expect(message).to eq('stripe_varsionが取得できませんでした')
+      end
+
+      it "not date" do
+        valid, message = @validate.stripe_varsion('かぷちーの')
+        expect(valid).to eq(false)
+        expect(message).to eq('stripe_varsionの形式が不正です')
+      end
+    end
+
+    context "cash_id" do
+      it "ok" do
+        valid, _ = @validate.cash_id(111)
+        expect(valid).to eq(true)
+      end
+
+      it "no nil" do
+        valid, message = @validate.cash_id(nil)
+        expect(valid).to eq(false)
+        expect(message).to eq('cash_idが取得できませんでした')
+      end
+
+      it "not date" do
+        valid, message = @validate.cash_id('かぷちーの')
+        expect(valid).to eq(false)
+        expect(message).to eq('cash_idの形式が不正です')
+      end
+    end
+    context "page" do
+      it "ok" do
+        valid, _ = @validate.page(111)
+        expect(valid).to eq(true)
+      end
+
+      it "no nil" do
+        valid, message = @validate.page(nil)
+        expect(valid).to eq(false)
+        expect(message).to eq('pageが取得できませんでした')
+      end
+
+      it "not date" do
+        valid, message = @validate.page('かぷちーの')
+        expect(valid).to eq(false)
+        expect(message).to eq('pageの形式が不正です')
+      end
+    end
   end
 end
