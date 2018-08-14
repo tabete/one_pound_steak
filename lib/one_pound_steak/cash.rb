@@ -4,7 +4,7 @@ module OnePoundSteak
   class Cash < Common
 
     def stripe_card_id(param)
-      Common.nil_check('stripe_card_id', param)
+      Common.not_nil_check('stripe_card_id', param)
     end
 
     def order_num(param)

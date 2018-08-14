@@ -161,10 +161,15 @@ RSpec.describe 'OnePoundSteak' do
         valid, _ = @validate.birth('2000-01-01')
         expect(valid).to eq(true)
       end
-      it "no nil" do
+      it "ok nil" do
         valid, message = @validate.birth(nil)
+        expect(valid).to eq(true)
+        expect(message).to eq('ok birth')
+      end
+      it "ok nil" do
+        valid, message = @validate.birth('カプチーノ')
         expect(valid).to eq(false)
-        expect(message).to eq('birthが取得できませんでした')
+        expect(message).to eq('birthの形式が不正です')
       end
     end
 
