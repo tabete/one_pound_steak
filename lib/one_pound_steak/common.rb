@@ -15,8 +15,13 @@ class Common
     state(true, 'ok ' + name)
   end
 
-  def self.nil_check(name, param)
+  def self.not_nil_check(name, param)
     return state(false, name + 'が取得できませんでした') if param.nil?
+    state(true, 'ok ' + name)
+  end
+
+  def self.is_nil_check(name, param)
+    return state(false, name + 'がnilではありませんでした') unless param.nil?
     state(true, 'ok ' + name)
   end
 

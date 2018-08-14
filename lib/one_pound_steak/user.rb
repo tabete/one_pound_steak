@@ -54,6 +54,9 @@ module OnePoundSteak
     end
 
     def birth(param)
+      is_valid, message = Common.is_nil_check('birth', param)
+      return [is_valid, message] if is_valid
+
       DatetimeParam.new.date(param, 'birth')
     end
 
@@ -62,7 +65,7 @@ module OnePoundSteak
     end
 
     def profile_image(param)
-      Common.nil_check('profile_image', param)
+      Common.not_nil_check('profile_image', param)
     end
 
     def provider(param)
