@@ -8,4 +8,6 @@ require 'one_pound_steak/numeric_param'
 require 'one_pound_steak/regex'
 require 'one_pound_steak/user'
 require 'one_pound_steak/cash'
+require 'one_pound_steak/location'
+
 # require 'one_pound_steak/product'
