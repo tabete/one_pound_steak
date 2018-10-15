@@ -10,7 +10,7 @@ module OnePoundSteak
       NumericParam.new.between_number(param, -90, 90, __method__.to_s)
     end
 
-    def scale(param)
+    def distance(param)
       NumericParam.new.natural_number(param, __method__.to_s)
     end
   end

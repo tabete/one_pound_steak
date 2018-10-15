@@ -34,16 +34,16 @@ RSpec.describe 'OnePoundSteak' do
       end
     end
 
-    context "scale" do
+    context "distance" do
       it "ok" do
-        valid, _ = @validate.scale(200)
+        valid, _ = @validate.distance(200)
         expect(valid).to eq(true)
       end
 
       it "no nil" do
-        valid, message = @validate.scale(nil)
+        valid, message = @validate.distance(nil)
         expect(valid).to eq(false)
-        expect(message).to eq('scaleが取得できませんでした')
+        expect(message).to eq('distanceが取得できませんでした')
       end
     end
   end
