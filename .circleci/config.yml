@@ -1,13 +1,12 @@
 version:2
-machine:
-  timezone:
-    Asia/Tokyo
-  ruby:
-    version:
-      2.4.2
-dependencies:
-  override:
-    - bundle install
-test:
-  override:
-    - bundle exec rspec spec
+jobs:
+  build:
+    docker:
+       - image: circleci/ruby:2.5.1-node-browsers
+         environment:
+           - RAILS_ENV: 'test'
+    working_directory: ~/repo
+    - run:
+      name: run tests
+      command: |
+        RAILS_ENV=test bundle exec rspec
