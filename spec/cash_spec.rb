@@ -20,6 +20,48 @@ RSpec.describe 'OnePoundSteak' do
       end
     end
 
+    context "coupon_code" do
+      it "ok" do
+        valid, _ = @validate.coupon_code('aaaaa')
+        expect(valid).to eq(true)
+      end
+
+      it "no nil" do
+        valid, message = @validate.stripe_card_id(nil)
+        expect(valid).to eq(false)
+        expect(message).to eq('stripe_card_idが取得できませんでした')
+      end
+    end
+
+
+    context "coupon_code_or_stripe_card_id" do
+      it "ok stripe_card_id nil" do
+        valid, message = @validate.coupon_code_or_stripe_card_id(nil, 'coupon_code22')
+        p message
+        expect(valid).to eq(true)
+      end
+
+      it "ok coupon_code nil" do
+        valid, message = @validate.coupon_code_or_stripe_card_id('stripe_card_id11', nil)
+        p message
+        expect(valid).to eq(true)
+      end
+
+      it "param both nil" do
+        valid, message = @validate.coupon_code_or_stripe_card_id(nil, nil)
+        p message
+        expect(valid).to eq(false)
+        expect(message).to eq('delete params coupon_code or stripe_card_token')
+      end
+
+      it "param both nil" do
+        valid, message = @validate.coupon_code_or_stripe_card_id('stripe_card_id11', 'coupon_code22')
+        p message
+        expect(valid).to eq(false)
+        expect(message).to eq('empty params coupon_code or stripe_card_token')
+      end
+    end
+
     context "product_id" do
       it "ok" do
         valid, _ = @validate.product_id('11')
