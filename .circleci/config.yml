@@ -11,4 +11,4 @@ jobs:
       - run:
           name: run tests
           command: |
-            RAILS_ENV=test bundle exec rspec spec
+            bundle exec rspec spec
