@@ -9,6 +9,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: install dependencies
+          command: |
+            bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
           name: run tests
           command: |
             bundle exec rspec spec
