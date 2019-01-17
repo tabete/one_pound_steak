@@ -15,10 +15,9 @@ module OnePoundSteak
       is_valid_coupon, _  = Common.not_nil_check(__method__.to_s, coupon_code)
       is_valid_card_id, _ = Common.not_nil_check(__method__.to_s, stripe_card_id)
 
-      return false, 'empty params coupon_code or stripe_card_token' if is_valid_coupon && is_valid_card_id
-      return false, 'delete params coupon_code or stripe_card_token' unless is_valid_coupon || is_valid_card_id
-      
-      [!(is_valid_coupon && is_valid_card_id) && (is_valid_coupon || is_valid_card_id), 'ok ' + __method__.to_s]
+      return false, 'empty params coupon_code or stripe_card_token' unless is_valid_coupon || is_valid_card_id
+
+      [true, 'ok ' + __method__.to_s]
     end
 
     def stripe_card_token_or_coupon_code?
