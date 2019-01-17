@@ -7,6 +7,19 @@ module OnePoundSteak
       Common.not_nil_check('stripe_card_id', param)
     end
 
+    def coupon_code(param)
+      Common.not_nil_check('coupon_code', param)
+    end
+
+    def coupon_code_or_stripe_card_id(coupon_code, stripe_card_id)
+      is_valid_coupon, _  = Common.not_nil_check('coupon_code', coupon_code)
+      is_valid_card_id, _ = Common.not_nil_check('stripe_card_id', stripe_card_id)
+
+      return false, 'empty params coupon_code or stripe_card_token' unless is_valid_coupon || is_valid_card_id
+
+      [true, 'ok ' + 'coupon_code_or_stripe_card_id']
+    end
+
     def order_num(param)
       Common.regex_check('order_num', param, Regex::VALID_NUTURAL_NUMBER)
     end

@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+       - image: circleci/ruby:2.4.2-node-browsers
+         environment:
+           TZ: Asia/Tokyo
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
+          name: run tests
+          command: |
+            bundle exec rspec spec
