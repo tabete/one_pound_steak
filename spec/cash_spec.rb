@@ -35,22 +35,22 @@ RSpec.describe 'OnePoundSteak' do
 
 
     context "coupon_code_or_stripe_card_id" do
-      it "ok stripe_card_id nil" do
+      it "ok stripe_card_idの値がnil" do
         valid, message = @validate.coupon_code_or_stripe_card_id(nil, 'coupon_code22')
         expect(valid).to eq(true)
       end
 
-      it "ok coupon_code nil" do
+      it "ok coupon_codeの値がnil" do
         valid, message = @validate.coupon_code_or_stripe_card_id('stripe_card_id11', nil)
         expect(valid).to eq(true)
       end
 
-      it "ok param both not nil" do
+      it "ok パラメータが両方入力されている" do
         valid, message = @validate.coupon_code_or_stripe_card_id('stripe_card_id11', 'coupon_code22')
         expect(valid).to eq(true)
       end
 
-      it "param both nil" do
+      it "パラメータが両方nil" do
         valid, message = @validate.coupon_code_or_stripe_card_id(nil, nil)
         expect(valid).to eq(false)
         expect(message).to eq('empty params coupon_code or stripe_card_token')
