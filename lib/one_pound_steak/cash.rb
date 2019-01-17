@@ -17,7 +17,7 @@ module OnePoundSteak
 
       return false, 'empty params coupon_code or stripe_card_token' unless is_valid_coupon || is_valid_card_id
 
-      [true, 'ok ' + __method__.to_s]
+      [true, 'ok ' + 'coupon_code_or_stripe_card_id']
     end
 
     def order_num(param)

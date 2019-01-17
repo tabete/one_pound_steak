@@ -26,7 +26,7 @@ RSpec.describe 'OnePoundSteak' do
         expect(valid).to eq(true)
       end
 
-      it "no nil" do
+      it "not nil" do
         valid, message = @validate.stripe_card_id(nil)
         expect(valid).to eq(false)
         expect(message).to eq('stripe_card_idが取得できませんでした')
