@@ -1,12 +1,26 @@
-version:2
+version: 2
 jobs:
   build:
     docker:
-       - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.1-node-browsers
          environment:
            - RAILS_ENV: 'test'
     working_directory: ~/repo
-    - run:
-      name: run tests
-      command: |
-        RAILS_ENV=test bundle exec rspec
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
+          name: create database.yml for test
+          command: |
+            mv config/database.ci.yml config/database.yml
+      - run:
+          name: create database
+          command: |
+            RAILS_ENV=test RACK_ENV=test bundle exec rake db:create db:schema:load --trace
+      - run:
+          name: run tests
+          command: |
+            RAILS_ENV=test bundle exec rspec
