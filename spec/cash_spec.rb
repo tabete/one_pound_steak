@@ -50,6 +50,12 @@ RSpec.describe 'OnePoundSteak' do
         expect(valid).to eq(true)
       end
 
+      it "パラメータが両方空文字" do
+        valid, message = @validate.coupon_code_or_stripe_card_id('', '')
+        expect(valid).to eq(false)
+        expect(message).to eq('empty params coupon_code or stripe_card_token')
+      end
+
       it "パラメータが両方nil" do
         valid, message = @validate.coupon_code_or_stripe_card_id(nil, nil)
         expect(valid).to eq(false)

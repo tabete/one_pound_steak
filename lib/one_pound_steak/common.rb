@@ -20,6 +20,12 @@ class Common
     state(true, 'ok ' + name)
   end
 
+  def self.not_blank_check(name, param)
+    return state(false, name + 'が取得できませんでした') if param.nil?
+    return state(false, name + 'が空でした') if param.empty?
+    state(true, 'ok ' + name)
+  end
+
   def self.is_nil_check(name, param)
     return state(false, name + 'がnilではありませんでした') unless param.nil?
     state(true, 'ok ' + name)
