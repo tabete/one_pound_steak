@@ -27,12 +27,37 @@ RSpec.describe 'OnePoundSteak' do
       end
 
       it "not nil" do
-        valid, message = @validate.stripe_card_id(nil)
+        valid, message = @validate.coupon_code(nil)
         expect(valid).to eq(false)
-        expect(message).to eq('stripe_card_idが取得できませんでした')
+        expect(message).to eq('coupon_codeが取得できませんでした')
       end
     end
 
+    context "price" do
+      it "ok" do
+        valid, _ = @validate.price(11)
+        expect(valid).to eq(true)
+      end
+
+      it "not nil" do
+        valid, message = @validate.price(nil)
+        expect(valid).to eq(false)
+        expect(message).to eq('priceが取得できませんでした')
+      end
+    end
+
+    context "shop_id" do
+      it "ok" do
+        valid, _ = @validate.shop_id(11)
+        expect(valid).to eq(true)
+      end
+
+      it "not nil" do
+        valid, message = @validate.shop_id(nil)
+        expect(valid).to eq(false)
+        expect(message).to eq('shop_idが取得できませんでした')
+      end
+    end
 
     context "coupon_code_or_stripe_card_id" do
       it "ok stripe_card_idの値がnil" do
