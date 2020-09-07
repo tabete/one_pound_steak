@@ -138,7 +138,7 @@ RSpec.describe 'OnePoundSteak' do
 
     context "gender" do
       it "ok" do
-        valid, _ = @validate.gender(1)
+        valid, _ = @validate.gender(0)
         expect(valid).to eq(true)
       end
       it "ok" do
