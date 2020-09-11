@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'active_support/all'
 
 module OnePoundSteak
   class User < Common
@@ -61,10 +62,10 @@ module OnePoundSteak
     end
 
     def phone_number(param)
-      unless hash[:phone_number].is_blank?
+      if param.present?
         Common.regex_check('phone_number', param, Regex::VALID_PHONENUMBER)
       else
-        state(true, 'ok phone_number')
+        Common.state(true, 'ok phone_number')
       end
     end
 
