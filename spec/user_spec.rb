@@ -187,6 +187,16 @@ RSpec.describe 'OnePoundSteak' do
         expect(valid).to eq(false)
         expect(message).to eq('phone_numberの形式が不正です')
       end
+      it "no invalid(blank)" do
+        valid, message = @validate.phone_number('')
+        expect(valid).to eq(false)
+        expect(message).to eq('phone_numberの形式が不正です')
+      end
+      it "no invalid(space)" do
+        valid, message = @validate.phone_number(' ')
+        expect(valid).to eq(false)
+        expect(message).to eq('phone_numberの形式が不正です')
+      end
     end
 
     context "profile_image" do

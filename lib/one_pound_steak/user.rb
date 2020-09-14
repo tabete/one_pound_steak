@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/object/blank' # present使用のため
-
 module OnePoundSteak
   class User < Common
     MAX_NAME_SIZE = 50
@@ -63,7 +61,7 @@ module OnePoundSteak
     end
 
     def phone_number(param)
-      if param.present?
+      unless param.nil?
         Common.regex_check('phone_number', param, Regex::VALID_PHONENUMBER)
       else
         Common.state(true, 'ok phone_number')
