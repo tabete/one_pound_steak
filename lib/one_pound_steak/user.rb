@@ -61,7 +61,11 @@ module OnePoundSteak
     end
 
     def phone_number(param)
-      Common.regex_check('phone_number', param, Regex::VALID_PHONENUMBER)
+      unless param.nil?
+        Common.regex_check('phone_number', param, Regex::VALID_PHONENUMBER)
+      else
+        Common.state(true, 'ok phone_number')
+      end
     end
 
     def profile_image(param)

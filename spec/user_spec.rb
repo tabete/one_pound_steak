@@ -178,10 +178,24 @@ RSpec.describe 'OnePoundSteak' do
         valid, _ = @validate.phone_number('090-0000-0000')
         expect(valid).to eq(true)
       end
-      it "no nil" do
+      it "ok (nil)" do
         valid, message = @validate.phone_number(nil)
+        expect(valid).to eq(true)
+      end
+      it "no invalid" do
+        valid, message = @validate.phone_number('1234567890')
         expect(valid).to eq(false)
-        expect(message).to eq('phone_numberが取得できませんでした')
+        expect(message).to eq('phone_numberの形式が不正です')
+      end
+      it "no invalid(blank)" do
+        valid, message = @validate.phone_number('')
+        expect(valid).to eq(false)
+        expect(message).to eq('phone_numberの形式が不正です')
+      end
+      it "no invalid(space)" do
+        valid, message = @validate.phone_number(' ')
+        expect(valid).to eq(false)
+        expect(message).to eq('phone_numberの形式が不正です')
       end
     end
 
