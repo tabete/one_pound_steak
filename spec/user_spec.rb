@@ -57,6 +57,27 @@ RSpec.describe 'OnePoundSteak' do
         expect(valid).to eq(false)
         expect(message).to eq('family_nameが取得できませんでした')
       end
+      
+      it "prohibits registration with only space characters" do
+        valid, message = @validate.family_name('') # 空文字列
+        expect(valid).to eq(false)
+        expect(message).to eq('family_nameの形式が不正です')
+        valid, message = @validate.family_name(' ') # スペース１つ
+        expect(valid).to eq(false)
+        expect(message).to eq('family_nameの形式が不正です')
+        valid, message = @validate.family_name('   ') # スペース３つ
+        expect(valid).to eq(false)
+        expect(message).to eq('family_nameの形式が不正です')
+        valid, message = @validate.family_name('　') # 全角スペース
+        expect(valid).to eq(false)
+        expect(message).to eq('family_nameの形式が不正です')
+        valid, message = @validate.family_name("\n") # 改行
+        expect(valid).to eq(false)
+        expect(message).to eq('family_nameの形式が不正です')
+        valid, message = @validate.family_name('  a   ')
+        expect(valid).to eq(true)
+        expect(message).to eq('ok family_name')
+      end
     end
 
     context "given_name" do
@@ -69,6 +90,27 @@ RSpec.describe 'OnePoundSteak' do
         valid, message = @validate.given_name(nil)
         expect(valid).to eq(false)
         expect(message).to eq('given_nameが取得できませんでした')
+      end
+
+      it "prohibits registration with only space characters" do
+        valid, message = @validate.given_name('') # 空文字列
+        expect(valid).to eq(false)
+        expect(message).to eq('given_nameの形式が不正です')
+        valid, message = @validate.given_name(' ') # スペース１つ
+        expect(valid).to eq(false)
+        expect(message).to eq('given_nameの形式が不正です')
+        valid, message = @validate.given_name('   ') # スペース３つ
+        expect(valid).to eq(false)
+        expect(message).to eq('given_nameの形式が不正です')
+        valid, message = @validate.given_name('　') # 全角スペース
+        expect(valid).to eq(false)
+        expect(message).to eq('given_nameの形式が不正です')
+        valid, message = @validate.given_name("\n") # 改行
+        expect(valid).to eq(false)
+        expect(message).to eq('given_nameの形式が不正です')
+        valid, message = @validate.given_name('  a   ')
+        expect(valid).to eq(true)
+        expect(message).to eq('ok given_name')
       end
     end
 

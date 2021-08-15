@@ -18,11 +18,15 @@ module OnePoundSteak
     end
 
     def family_name(param)
-      StringParam.new.size_over(param, MAX_NAME_SIZE, 'family_name')
+      is_valid, message = StringParam.new.size_over(param, MAX_NAME_SIZE, 'family_name')
+      return [is_valid, message] unless is_valid
+      Common.regex_check('family_name', param, Regex::VALID_NOT_ONLY_SPACE)
     end
 
     def given_name(param)
-      StringParam.new.size_over(param, MAX_NAME_SIZE, 'given_name')
+      is_valid, message = StringParam.new.size_over(param, MAX_NAME_SIZE, 'given_name')
+      return [is_valid, message] unless is_valid
+      Common.regex_check('given_name', param, Regex::VALID_NOT_ONLY_SPACE)
     end
 
     def first_ruby(param)
